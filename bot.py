@@ -135,7 +135,7 @@ async def stats(ctx):
         seconds = row[0]
         minutes = seconds // 60
         hours = seconds // 3600
-        flames = minutes
+        flames = seconds // 3600  # 🔥 1 Flamme = 1 Stunde
         print(f"📊 {ctx.author.display_name} hat {seconds} Sekunden Voice-Zeit.")
         await ctx.send(
             f"⏱️ Du warst **{hours} Stunden** / **{minutes} Minuten** im Voice.\n"
@@ -144,6 +144,7 @@ async def stats(ctx):
     else:
         await ctx.send("🔍 Du hast noch keine Voice-Zeit gesammelt.")
         print(f"📊 {ctx.author.display_name} hat noch keinen Eintrag in der Datenbank.")
+
 
 
 @bot.command(name="leaderboard")
